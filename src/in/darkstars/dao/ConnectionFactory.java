@@ -15,7 +15,6 @@ import javax.sql.DataSource;
  * @author Vikash
  * 
  *         Purpose :- Factory class for getting connections in a
- *         centralized manner.
  * 
  */
 public class ConnectionFactory {
