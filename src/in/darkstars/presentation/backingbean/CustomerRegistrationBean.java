@@ -8,6 +8,7 @@ import in.darkstars.service.ServiceFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
+import java.util.Calendar;
 
 import org.apache.commons.beanutils.BeanUtils;
 
@@ -185,6 +186,10 @@ public class CustomerRegistrationBean {
 	 * @return the dateOfBirth
 	 */
 	public Date getDateOfBirth() {
+		if (dateOfBirth == null)
+		{
+			dateOfBirth = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+		}
 		return dateOfBirth;
 	}
 
