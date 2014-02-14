@@ -186,7 +186,12 @@ public class CustomerRegistrationBean {
 	 * @return the dateOfBirth
 	 */
 	public Date getDateOfBirth() {
+		
 		if (dateOfBirth == null)
+		{
+			dateOfBirth = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+		}
+		else if ( dateOfBirth.compareTo( new java.sql.Date(Calendar.getInstance().getTime().getTime())) != 0 )
 		{
 			dateOfBirth = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		}

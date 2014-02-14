@@ -61,6 +61,10 @@ public class OpeningAccountBean {
 		{
 			openingDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		}
+		else if ( openingDate.compareTo( new java.sql.Date(Calendar.getInstance().getTime().getTime())) != 0 )
+		{
+			openingDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+		}
 		return openingDate;
 	}
 	/**

@@ -54,7 +54,7 @@
 			</tr>
 			<tr>
 				<td><h:outputText  value="Opening-Date" /></td>
-				<td><t:inputDate id="openingDate"  value="#{account.openingDate}" type="date" required="true" requiredMessage="#{validationMsg.required}" /></td>
+				<td><t:inputDate id="openingDate"  disabled="true" value="#{account.openingDate}" type="date" required="true" requiredMessage="#{validationMsg.required}" /></td>
 				<td><h:message for="openingDate" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
