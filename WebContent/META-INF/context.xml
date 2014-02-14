@@ -1,0 +1,7 @@
+<Context>
+  <Resource name="bankDataSource" auth="Container" type="javax.sql.DataSource"
+               maxActive="50" maxIdle="30" maxWait="10000"
+               username="vikash" password="vikash" 
+               driverClassName="org.apache.derby.jdbc.ClientDriver"
+               url="jdbc:derby://127.0.0.1:1527/bank" />
+</Context>

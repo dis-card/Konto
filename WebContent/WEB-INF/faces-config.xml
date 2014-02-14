@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<faces-config
+    xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-facesconfig_1_2.xsd"
+    version="1.2">
+    <managed-bean>
+    	<managed-bean-name>customer</managed-bean-name>
+    	<managed-bean-class>in.darkstars.presentation.backingbean.CustomerRegistrationBean</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    <managed-bean>
+    	<managed-bean-name>account</managed-bean-name>
+    	<managed-bean-class>in.darkstars.presentation.backingbean.OpeningAccountBean</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+     <managed-bean>
+    	<managed-bean-name>transaction</managed-bean-name>
+    	<managed-bean-class>in.darkstars.presentation.backingbean.TransactionBean</managed-bean-class>
+    	<managed-bean-scope>request</managed-bean-scope>
+    </managed-bean>
+    
+    
+    <navigation-rule>
+    	<from-view-id>/registration.jsp</from-view-id>
+    	<navigation-case>
+    		<from-outcome>success</from-outcome>
+    		<to-view-id>/registration.jsp</to-view-id>
+    	</navigation-case>
+    </navigation-rule>    
+    <navigation-rule>
+    	<from-view-id>/transaction.jsp</from-view-id>
+    	<navigation-case>
+    		<from-outcome>success</from-outcome>
+    		<to-view-id>/transaction.jsp</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+    <application>
+	  <resource-bundle>
+		<base-name>in.darkstars.helper.message</base-name>
+		<var>validationMsg</var>
+	   </resource-bundle>
+     </application>
+
+</faces-config>
