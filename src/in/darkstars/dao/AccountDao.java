@@ -97,6 +97,7 @@ public class AccountDao implements Dao {
 		return accountId;
 	}
 
+	/* withdraw() :- for withdrawal purpose */
 	public double withdraw(Transaction transaction)
 			throws CustomerNotFoundException, DataAccessException,
 			AccountNotFoundException, InsufficientDepositException {
@@ -156,6 +157,7 @@ public class AccountDao implements Dao {
 
 	}
 
+	/* deposit() :- for deposit purpose.*/
 	public double deposit(Transaction transaction)
 			throws CustomerNotFoundException, DataAccessException,
 			AccountNotFoundException {
@@ -213,6 +215,7 @@ public class AccountDao implements Dao {
 		return balance;
 	}
 
+	/* getAccount() :- fetching account details. */
 	private SavingAccount getAccount(String customerId, String accountType)
 			throws AccountNotFoundException, DataAccessException {
 		Connection con = null;

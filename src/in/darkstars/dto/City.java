@@ -4,6 +4,8 @@ import java.io.Serializable;
 
 /**
  * @author Vikash
+ * 
+ * Purpose :- act as data transfer object for City.
  *
  */
 public class City implements Serializable{

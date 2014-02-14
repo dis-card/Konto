@@ -2,6 +2,13 @@ package in.darkstars.dto;
 
 import java.io.Serializable;
 
+
+/*
+ *  Author	:-	Vikash
+ *  
+ *  Purpose :- data transfer object for transactions.
+ */
+
 public class Transaction implements Serializable {
 	
 	/**

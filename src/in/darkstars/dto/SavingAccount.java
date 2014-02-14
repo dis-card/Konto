@@ -3,7 +3,11 @@ package in.darkstars.dto;
 import java.io.Serializable;
 import java.sql.Date;
 
-
+/*
+ *  Author :- Vikash
+ *  
+ *  Purpose :- data transfer object for Saving Accounts.
+ */
 public class SavingAccount implements Serializable {
 	
 	/**

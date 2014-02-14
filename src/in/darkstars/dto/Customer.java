@@ -6,6 +6,7 @@ import java.sql.Date;
 /**
  * @author Vikash
  *
+ * Purpose :- data transfer object for customer.
  */
 public class Customer implements Serializable{
 	

@@ -12,6 +12,7 @@ import in.darkstars.service.ServiceFactory;
 
 import java.lang.reflect.InvocationTargetException;
 import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import org.apache.commons.beanutils.BeanUtils;
@@ -55,6 +56,8 @@ public class OpeningAccountBean {
 	 * @return the openingDate
 	 */
 	public Date getOpeningDate() {
+	
+		openingDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
 		return openingDate;
 	}
 	/**

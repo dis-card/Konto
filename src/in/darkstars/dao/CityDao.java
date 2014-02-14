@@ -17,8 +17,13 @@ import org.apache.commons.dbutils.DbUtils;
 /**
  * @author Vikash
  * 
+ * Purpose :- City table related operations are implemented in this class.
+ * 
  */
 public class CityDao implements Dao {
+	
+	
+	/* selectAll() :- returns all the city that are present in the database as list. */
 
 	public List<City> selectAll() throws DataAccessException {
 		Connection con = null;

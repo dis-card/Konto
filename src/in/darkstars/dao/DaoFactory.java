@@ -5,6 +5,8 @@ import in.darkstars.helper.Constants;
 /**
  * @author Vikash
  * 
+ * Purpose :- factory class for the data access objects.
+ * 
  */
 public class DaoFactory {
 
@@ -12,6 +14,7 @@ public class DaoFactory {
 	private static CityDao cityDao;
 	private static AccountDao accountDao;
 
+	/* getDao() :- returns the dao class of the respective type ( as supplied in the argument ) */
 	public static Dao getDao(String daoType) {
 		Dao dao = null;
 		if (daoType.equals(Constants.customer)) {
