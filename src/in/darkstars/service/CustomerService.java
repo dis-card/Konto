@@ -15,7 +15,7 @@ public class CustomerService implements Service{
 	public int register(Customer customer) throws DataAccessException
 	{
 		System.out.println("In customer Service");
-		CustomerDao customerDao = (CustomerDao) DaoFactory.getDao(Constants.customer);
+		CustomerDao customerDao = (CustomerDao) DaoFactory.getDao(Constants.CUSTOMER);
 		return customerDao.save(customer);
 	}
 	

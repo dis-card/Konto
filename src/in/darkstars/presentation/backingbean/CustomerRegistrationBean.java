@@ -241,13 +241,13 @@ public class CustomerRegistrationBean {
 		Customer customer = new Customer();
 		BeanUtils.copyProperties(customer, this);
 		CustomerService customerService = (CustomerService) ServiceFactory
-				.getService(Constants.customer);
+				.getService(Constants.CUSTOMER);
 		try {
 			customerId = customerService.register(customer);
-			msg = Constants.customerRegistrationSuccessfulMessage;
+			msg = Constants.CUSTOMERREGISTRATIONSUCCESSFULMESSAGE;
 			reset();
 		} catch (DataAccessException e) {
-			errorMsg = Constants.dataAccessExceptionMessage;
+			errorMsg = Constants.DATAACCESSEXCEPTIONMESSAGE;
 		}
 		return outcome;
 	}

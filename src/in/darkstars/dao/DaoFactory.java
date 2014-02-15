@@ -17,7 +17,7 @@ public class DaoFactory {
 	/* getDao() :- returns the dao class of the respective type ( as supplied in the argument ) */
 	public static Dao getDao(String daoType) {
 		Dao dao = null;
-		if (daoType.equals(Constants.customer)) {
+		if (daoType.equals(Constants.CUSTOMER)) {
 			if (customerDao == null)
 			{
 				synchronized (CustomerDao.class) {
@@ -28,7 +28,7 @@ public class DaoFactory {
 			}			
 			dao = customerDao;
 		}
-		else if (daoType.equals(Constants.city)) {
+		else if (daoType.equals(Constants.CITY)) {
 
 			if (cityDao == null)
 			{
@@ -40,7 +40,7 @@ public class DaoFactory {
 			}		
 			dao = cityDao;
 		}
-		else if (daoType.equals(Constants.account)) {
+		else if (daoType.equals(Constants.ACCOUNT)) {
 			
 			if (accountDao == null)
 			{

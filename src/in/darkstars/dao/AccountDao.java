@@ -49,15 +49,15 @@ public class AccountDao implements Dao {
 			con = ConnectionFactory.getConnection();
 			con.setAutoCommit(false);
 
-			if (account.getAccountType().equals(Constants.regularSavingAccount)) {
+			if (account.getAccountType().equals(Constants.REGULARSAVINGACCOUNT)) {
 				ps = con.prepareStatement(
-						Constants.insertRegularSavingAccountQuery,
+						Constants.INSERTREGULARSAVINGACCOUNTQUERY,
 						Statement.RETURN_GENERATED_KEYS);
 			}
-			else if ( account.getAccountType().equals(Constants.salarySavingAccount) )
+			else if ( account.getAccountType().equals(Constants.SALARYSAVINGACCOUNT) )
 			{
 				ps = con.prepareStatement(
-						Constants.insertSalarySavingAccountQuery,
+						Constants.INSERTSALARYSAVINGACCOUNTQUERY,
 						Statement.RETURN_GENERATED_KEYS);
 			}
 			ps.setString(1, account.getCustomerId());
@@ -116,11 +116,11 @@ public class AccountDao implements Dao {
 			con.setAutoCommit(false);
 
 			if (transaction.getAccountType().equals(
-					Constants.regularSavingAccount)) {
-				ps = con.prepareStatement(Constants.updateRegularSavingAccountQuery);
+					Constants.REGULARSAVINGACCOUNT)) {
+				ps = con.prepareStatement(Constants.UPDATEREGULARSAVINGACCOUNTQUERY);
 			} else if (transaction.getAccountType().equals(
-					Constants.salarySavingAccount)) {
-				ps = con.prepareStatement(Constants.updateSalarySavingAccountQuery);
+					Constants.SALARYSAVINGACCOUNT)) {
+				ps = con.prepareStatement(Constants.UPDATESALARYSAVINGACCOUNTQUERY);
 			}
 			balance = savingAccount.getInitialDeposit()
 					- transaction.getAmount();
@@ -177,11 +177,11 @@ public class AccountDao implements Dao {
 			con.setAutoCommit(false);
 
 			if (transaction.getAccountType().equals(
-					Constants.regularSavingAccount)) {
-				ps = con.prepareStatement(Constants.updateRegularSavingAccountQuery);
+					Constants.REGULARSAVINGACCOUNT)) {
+				ps = con.prepareStatement(Constants.UPDATEREGULARSAVINGACCOUNTQUERY);
 			} else if (transaction.getAccountType().equals(
-					Constants.salarySavingAccount)) {
-				ps = con.prepareStatement(Constants.updateSalarySavingAccountQuery);
+					Constants.SALARYSAVINGACCOUNT)) {
+				ps = con.prepareStatement(Constants.UPDATESALARYSAVINGACCOUNTQUERY);
 			}
 			balance = savingAccount.getInitialDeposit()
 					+ transaction.getAmount();
@@ -226,10 +226,10 @@ public class AccountDao implements Dao {
 		SavingAccount savingAccount = null;
 		try {
 			con = ConnectionFactory.getConnection();
-			if (accountType.equals(Constants.regularSavingAccount)) {
-				ps = con.prepareStatement(Constants.selectRegularSavingAccountQuery);
-			} else if (accountType.equals(Constants.salarySavingAccount)) {
-				ps = con.prepareStatement(Constants.selectSalarySavingAccountQuery);
+			if (accountType.equals(Constants.REGULARSAVINGACCOUNT)) {
+				ps = con.prepareStatement(Constants.SELECTREGULARSAVINGACCOUNTQUERY);
+			} else if (accountType.equals(Constants.SALARYSAVINGACCOUNT)) {
+				ps = con.prepareStatement(Constants.SELECTSALARYSAVINGACCOUNTQUERY);
 			} 
 			ps.setString(1, customerId);
 			rs = ps.executeQuery();
@@ -276,7 +276,7 @@ public class AccountDao implements Dao {
 	private void checkCustomer(String customerId)
 			throws CustomerNotFoundException, DataAccessException {
 		CustomerDao customerDao = (CustomerDao) DaoFactory
-				.getDao(Constants.customer);
+				.getDao(Constants.CUSTOMER);
 		customerDao.getCustomer(customerId);
 	}
 

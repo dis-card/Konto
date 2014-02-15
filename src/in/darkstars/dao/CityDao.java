@@ -32,7 +32,7 @@ public class CityDao implements Dao {
 		List<City> cityList = new ArrayList<City>();
 		try {
 			con = ConnectionFactory.getConnection();
-			ps = con.prepareStatement(Constants.selectCityQuery);
+			ps = con.prepareStatement(Constants.SELECTCITYQUERY);
 			rs = ps.executeQuery();
 			while (rs.next()) {
 				City city = new City();

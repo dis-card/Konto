@@ -88,12 +88,12 @@ public class OpeningAccountBean {
 	 */
 	public List<City> getPreferredCityList() {
 		AccountService accountService = (AccountService) ServiceFactory
-				.getService(Constants.account);
+				.getService(Constants.ACCOUNT);
 		try {
 			preferredCityList = accountService.getCityList();
 		} catch (DataAccessException e) {
 			e.printStackTrace();
-			errorMsg = Constants.dataAccessExceptionMessage;
+			errorMsg = Constants.DATAACCESSEXCEPTIONMESSAGE;
 		}
 		return preferredCityList;
 	}
@@ -208,26 +208,26 @@ public class OpeningAccountBean {
 		BeanUtils.copyProperties(savingAccount, this);
 		savingAccount.setInitialDeposit(Double.parseDouble(initialDeposit));
 		System.out.println(savingAccount.getInitialDeposit());
-		AccountService accountService = (AccountService)ServiceFactory.getService(Constants.account);
+		AccountService accountService = (AccountService)ServiceFactory.getService(Constants.ACCOUNT);
 			try {
 				accountId = accountService.openAccount(savingAccount);
-				msg = Constants.openingAccountSuccessfulMessage;
+				msg = Constants.OPENINGACCOUNTSUCCESSFULMESSAGE;
 				reset();
 			} catch (DataAccessException e) {
 				e.printStackTrace();
-				errorMsg = Constants.dataAccessExceptionMessage;
+				errorMsg = Constants.DATAACCESSEXCEPTIONMESSAGE;
 			}
 			catch (InsufficientDepositException e )
 			{
-				errorMsg = Constants.insufficientDepositExceptionMessage;
+				errorMsg = Constants.INSUFFICIENTDEPOSITEXCEPTIONMESSAGE;
 			}
 			catch (AccountAlreadyExistException e )
 			{
-				errorMsg = Constants.accountAlreadyExistExceptionMessage;
+				errorMsg = Constants.ACCOUNTALREADYEXISTEXCEPTIONMESSAGE;
 			}
 			catch (CustomerNotFoundException e )
 			{
-				errorMsg = Constants.customerNotFoundExceptionMessage;
+				errorMsg = Constants.CUSTOMERNOTFOUNDEXCEPTIONMESSAGE;
 			}
 		return outcome;
 	}

@@ -27,7 +27,7 @@ public class AccountService implements Service {
 	
 	public List<City> getCityList() throws DataAccessException
 	{
-		CityDao cityDao = (CityDao) DaoFactory.getDao(Constants.city);
+		CityDao cityDao = (CityDao) DaoFactory.getDao(Constants.CITY);
 		return cityDao.selectAll();
 	}
 
@@ -41,9 +41,9 @@ public class AccountService implements Service {
 	 */
 	public int openAccount( SavingAccount account ) throws DataAccessException, InsufficientDepositException, CustomerNotFoundException, AccountAlreadyExistException{
 		
-		if ( account.getAccountType().equals(Constants.regularSavingAccount) && account.getInitialDeposit()  < 100.0f )
+		if ( account.getAccountType().equals(Constants.REGULARSAVINGACCOUNT) && account.getInitialDeposit()  < 100.0f )
 			throw new InsufficientDepositException();
-		AccountDao accountDao = (AccountDao) DaoFactory.getDao(Constants.account);
+		AccountDao accountDao = (AccountDao) DaoFactory.getDao(Constants.ACCOUNT);
 		return accountDao.save(account);
 		
 	}
@@ -51,12 +51,12 @@ public class AccountService implements Service {
 	public double performTransaction( Transaction transaction ) throws TransactionNotSupportedException, CustomerNotFoundException, DataAccessException, AccountNotFoundException, InsufficientDepositException {
 		
 		double balance = 0;
-		AccountDao accountDao = (AccountDao) DaoFactory.getDao(Constants.account);
-		if (transaction.getTransactionType().equals(Constants.withdraw))
+		AccountDao accountDao = (AccountDao) DaoFactory.getDao(Constants.ACCOUNT);
+		if (transaction.getTransactionType().equals(Constants.WITHDRAW))
 		{
 			balance = accountDao.withdraw(transaction);
 		}
-		else if ( transaction.getTransactionType().equals(Constants.deposit) )
+		else if ( transaction.getTransactionType().equals(Constants.DEPOSIT) )
 		{
 			balance = accountDao.deposit(transaction);
 		}

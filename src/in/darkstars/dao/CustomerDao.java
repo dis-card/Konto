@@ -34,7 +34,7 @@ public class CustomerDao implements Dao {
 		try {
 			con = ConnectionFactory.getConnection();
 			con.setAutoCommit(false);
-			ps = con.prepareStatement(Constants.insertCustomerQuery,
+			ps = con.prepareStatement(Constants.INSERTCUSTOMERQUERY,
 					Statement.RETURN_GENERATED_KEYS);
 			ps.setString(1, customer.getFirstName());
 			ps.setString(2, customer.getLastName());
@@ -85,7 +85,7 @@ public class CustomerDao implements Dao {
 
 		try {
 			con = ConnectionFactory.getConnection();
-			ps = con.prepareStatement(Constants.selectCustomerQuery);
+			ps = con.prepareStatement(Constants.SELECTCUSTOMERQUERY);
 			ps.setString(1, customerId);
 			rs = ps.executeQuery();
 			if (!rs.next())

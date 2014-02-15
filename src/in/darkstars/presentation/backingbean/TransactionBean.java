@@ -85,23 +85,23 @@ public class TransactionBean {
 	
 	public String performTransaction() throws IllegalAccessException, InvocationTargetException
 	{
-		AccountService accountService = (AccountService) ServiceFactory.getService(Constants.account);
+		AccountService accountService = (AccountService) ServiceFactory.getService(Constants.ACCOUNT);
 		Transaction transaction = new Transaction();
 		BeanUtils.copyProperties(transaction, this);
 		try {
 			double balance = accountService.performTransaction(transaction);
-			msg = Constants.transactionSuccessfulMessage+" "+balance;
+			msg = Constants.TRANSACTIONSUCCESSFULMESSAGE+" "+balance;
 			reset();
 		} catch (TransactionNotSupportedException e) {
-			errorMsg = Constants.transactionNotSupportedExceptionMessage;
+			errorMsg = Constants.TRANSACTIONNOTSUPPORTEDEXCEPTIONMESSAGE;
 		} catch (CustomerNotFoundException e) {
-			errorMsg = Constants.customerNotFoundExceptionMessage;
+			errorMsg = Constants.CUSTOMERNOTFOUNDEXCEPTIONMESSAGE;
 		} catch (DataAccessException e) {
-			errorMsg = Constants.dataAccessExceptionMessage;
+			errorMsg = Constants.DATAACCESSEXCEPTIONMESSAGE;
 		} catch (AccountNotFoundException e) {
-			errorMsg = Constants.accountNotFoundExceptionMessage;
+			errorMsg = Constants.ACCOUNTNOTFOUNDEXCEPTIONMESSAGE;
 		} catch (InsufficientDepositException e) {
-			errorMsg = Constants.insufficientDepositExceptionMessage;
+			errorMsg = Constants.INSUFFICIENTDEPOSITEXCEPTIONMESSAGE;
 		}
 		return outcome;
 	}

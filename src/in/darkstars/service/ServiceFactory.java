@@ -13,7 +13,7 @@ public class ServiceFactory {
 
 	public static Service getService(String serviceType) {
 		Service service = null;
-		if (serviceType.equals(Constants.customer)) {
+		if (serviceType.equals(Constants.CUSTOMER)) {
 			
 			if (customerService == null )
 			{
@@ -23,7 +23,7 @@ public class ServiceFactory {
 				}
 			}
 			service = customerService;
-		} else if (serviceType.equals(Constants.account)) {
+		} else if (serviceType.equals(Constants.ACCOUNT)) {
 			
 			if (accountService == null )
 			{

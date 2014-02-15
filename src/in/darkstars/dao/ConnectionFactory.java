@@ -36,7 +36,7 @@ public class ConnectionFactory {
 				}
 			}
 			if (ds == null)
-				ds = (DataSource) ctx.lookup(Constants.dataSource);
+				ds = (DataSource) ctx.lookup(Constants.DATASOURCE);
 			con = ds.getConnection();
 		} catch (NamingException e) {
 			e.printStackTrace();
