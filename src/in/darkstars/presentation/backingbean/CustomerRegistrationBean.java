@@ -222,7 +222,7 @@ public class CustomerRegistrationBean {
 	}
 	
 	
-	public String reset()
+	private void reset()
 	{
 		this.firstName = "";
 		this.lastName = "";
@@ -232,7 +232,6 @@ public class CustomerRegistrationBean {
 		this.city = "";
 		this.pin = "";
 		this.state = ""; 
-		return outcome;
 	}
 
 	/* register() :- calls service layer for customer registration */

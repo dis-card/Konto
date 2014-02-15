@@ -77,7 +77,11 @@ public class TransactionBean {
 		this.amount = amount;
 	}
 
-	
+	private void reset()
+	{
+		this.amount = null;
+		this.customerId = null;
+	}
 	
 	public String performTransaction() throws IllegalAccessException, InvocationTargetException
 	{
@@ -87,6 +91,7 @@ public class TransactionBean {
 		try {
 			double balance = accountService.performTransaction(transaction);
 			msg = Constants.transactionSuccessfulMessage+" "+balance;
+			reset();
 		} catch (TransactionNotSupportedException e) {
 			errorMsg = Constants.transactionNotSupportedExceptionMessage;
 		} catch (CustomerNotFoundException e) {

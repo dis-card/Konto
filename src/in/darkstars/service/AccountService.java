@@ -8,7 +8,6 @@ import in.darkstars.dto.SavingAccount;
 import in.darkstars.dto.Transaction;
 import in.darkstars.exception.AccountAlreadyExistException;
 import in.darkstars.exception.AccountNotFoundException;
-import in.darkstars.exception.AccountTypeNotSupportedException;
 import in.darkstars.exception.CustomerNotFoundException;
 import in.darkstars.exception.DataAccessException;
 import in.darkstars.exception.InsufficientDepositException;
@@ -40,7 +39,7 @@ public class AccountService implements Service {
 	 * @throws InsufficientAmountException 
 	 * 
 	 */
-	public int openAccount( SavingAccount account ) throws DataAccessException, InsufficientDepositException, CustomerNotFoundException, AccountAlreadyExistException, AccountTypeNotSupportedException {
+	public int openAccount( SavingAccount account ) throws DataAccessException, InsufficientDepositException, CustomerNotFoundException, AccountAlreadyExistException{
 		
 		if ( account.getAccountType().equals(Constants.regularSavingAccount) && account.getInitialDeposit()  < 100.0f )
 			throw new InsufficientDepositException();

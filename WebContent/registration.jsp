@@ -78,7 +78,7 @@
 			<tr>
 				<td><h:commandButton type="submit"
 						action="#{customer.register}" value="Register" /></td>
-				<td><h:commandButton  type="reset" immediate="true" value="Reset" action="#{customer.reset }"/></td>
+				<td><h:commandButton  type="reset" value="Reset" /></td>
 			</tr>
 		</table>
 	</h:form>

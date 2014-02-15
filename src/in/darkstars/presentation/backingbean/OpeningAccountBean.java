@@ -3,7 +3,6 @@ package in.darkstars.presentation.backingbean;
 import in.darkstars.dto.City;
 import in.darkstars.dto.SavingAccount;
 import in.darkstars.exception.AccountAlreadyExistException;
-import in.darkstars.exception.AccountTypeNotSupportedException;
 import in.darkstars.exception.CustomerNotFoundException;
 import in.darkstars.exception.DataAccessException;
 import in.darkstars.exception.InsufficientDepositException;
@@ -190,7 +189,7 @@ public class OpeningAccountBean {
 	}
 	
 	
-	public String reset()
+	public void reset()
 	{
 		this.customerId = null;
 		this.preferredCity = null;
@@ -199,7 +198,6 @@ public class OpeningAccountBean {
 		this.openingDate = null;
 		this.preferredCity = null;
 		this.accountType = null;
-		return outcome;
 	}
 	
 	/* open() :- Workhorse method of this class, it will service layer methods for opening account. */
@@ -230,10 +228,6 @@ public class OpeningAccountBean {
 			catch (CustomerNotFoundException e )
 			{
 				errorMsg = Constants.customerNotFoundExceptionMessage;
-			}
-			catch (AccountTypeNotSupportedException e)
-			{
-				errorMsg = Constants.accountTypeNotSupportedExceptionMessage;
 			}
 		return outcome;
 	}

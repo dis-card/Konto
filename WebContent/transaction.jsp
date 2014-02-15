@@ -68,7 +68,7 @@
 			<tr>
 				<td><h:commandButton type="submit"
 						action="#{transaction.performTransaction}" value="Perform" /></td>
-				<td><h:commandButton type="reset" value="Reset" /></td>
+				<td><h:commandButton  type="reset" value="Reset" /></td>
 			</tr>
 		</table>
 	</h:form>

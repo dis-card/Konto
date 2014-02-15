@@ -64,7 +64,7 @@
 			<tr>
 				<td><h:commandButton type="submit" action="#{account.open}"
 						value="Open" /></td>
-				<td><h:commandButton  type="reset" immediate="true" value="Reset" action="#{account.reset }"/></td>
+				<td><h:commandButton  type="reset" value="Reset" /></td>
 			</tr>
 		</table>
 	</h:form>

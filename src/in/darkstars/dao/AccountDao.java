@@ -4,7 +4,6 @@ import in.darkstars.dto.SavingAccount;
 import in.darkstars.dto.Transaction;
 import in.darkstars.exception.AccountAlreadyExistException;
 import in.darkstars.exception.AccountNotFoundException;
-import in.darkstars.exception.AccountTypeNotSupportedException;
 import in.darkstars.exception.CustomerNotFoundException;
 import in.darkstars.exception.DataAccessException;
 import in.darkstars.exception.DataSourceException;
@@ -31,7 +30,7 @@ public class AccountDao implements Dao {
 	/* save():- Persist account related details to the database. */
 
 	public int save(SavingAccount account) throws DataAccessException,
-			CustomerNotFoundException, AccountAlreadyExistException, AccountTypeNotSupportedException {
+			CustomerNotFoundException, AccountAlreadyExistException {
 		int accountId = -1;
 		Connection con = null;
 		PreparedStatement ps = null;
@@ -61,8 +60,6 @@ public class AccountDao implements Dao {
 						Constants.insertSalarySavingAccountQuery,
 						Statement.RETURN_GENERATED_KEYS);
 			}
-			else
-				throw new AccountTypeNotSupportedException();
 			ps.setString(1, account.getCustomerId());
 			ps.setString(2, account.getPreferredCity());
 			ps.setDouble(3, account.getInitialDeposit());
