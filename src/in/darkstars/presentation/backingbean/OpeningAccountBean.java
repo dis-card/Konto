@@ -3,6 +3,7 @@ package in.darkstars.presentation.backingbean;
 import in.darkstars.dto.City;
 import in.darkstars.dto.SavingAccount;
 import in.darkstars.exception.AccountAlreadyExistException;
+import in.darkstars.exception.AccountTypeNotSupportedException;
 import in.darkstars.exception.CustomerNotFoundException;
 import in.darkstars.exception.DataAccessException;
 import in.darkstars.exception.InsufficientDepositException;
@@ -35,7 +36,7 @@ public class OpeningAccountBean {
 	private String preferredCity;
 	
 	/* Store customer's initial deposit in the account.*/
-	private double initialDeposit;
+	private String initialDeposit;
 	
 	/* Store customer's account type i.e "Regular Saving" or "Salary Saving".*/
 	private String accountType;
@@ -152,21 +153,19 @@ public class OpeningAccountBean {
 	public void setCustomerId(String customerId) {
 		this.customerId = customerId;
 	}
+	
 	/**
 	 * @return the initialDeposit
 	 */
-	public double getInitialDeposit() {
+	public String getInitialDeposit() {
 		return initialDeposit;
 	}
-
 	/**
-	 * @param initialDeposit
-	 *            the initialDeposit to set
+	 * @param initialDeposit the initialDeposit to set
 	 */
-	public void setInitialDeposit(double initialDeposit) {
+	public void setInitialDeposit(String initialDeposit) {
 		this.initialDeposit = initialDeposit;
 	}
-
 	/**
 	 * @return the accountType
 	 */
@@ -195,7 +194,7 @@ public class OpeningAccountBean {
 	{
 		this.customerId = null;
 		this.preferredCity = null;
-		this.initialDeposit = 0;
+		this.initialDeposit = null;
 		this.accountType = null;
 		this.openingDate = null;
 		this.preferredCity = null;
@@ -209,6 +208,8 @@ public class OpeningAccountBean {
 		
 		SavingAccount savingAccount = new SavingAccount();
 		BeanUtils.copyProperties(savingAccount, this);
+		savingAccount.setInitialDeposit(Double.parseDouble(initialDeposit));
+		System.out.println(savingAccount.getInitialDeposit());
 		AccountService accountService = (AccountService)ServiceFactory.getService(Constants.account);
 			try {
 				accountId = accountService.openAccount(savingAccount);
@@ -229,6 +230,10 @@ public class OpeningAccountBean {
 			catch (CustomerNotFoundException e )
 			{
 				errorMsg = Constants.customerNotFoundExceptionMessage;
+			}
+			catch (AccountTypeNotSupportedException e)
+			{
+				errorMsg = Constants.accountTypeNotSupportedExceptionMessage;
 			}
 		return outcome;
 	}

@@ -33,17 +33,17 @@
 		<table class="table">
 			<tr>
 				<td><h:outputText value="First Name" /></td>
-				<td><h:inputText  id="firstName" value="#{customer.firstName}" required="true" requiredMessage="#{validationMsg.required }" > <mcv:validateRegExpr pattern="[ ]*[A-Z][a-z]*[ ]*" message="#{validationMsg.firstName }" /></h:inputText></td>
+				<td><h:inputText  id="firstName" value="#{customer.firstName}" required="true" requiredMessage="#{validationMsg.required }" > <mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.firstName }" /></h:inputText></td>
 				<td><h:message for="firstName" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
 				<td><h:outputText  value="Last Name" /> </td>
-				<td><h:inputText id="lastName" value="#{customer.lastName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="[ ]*[A-Z][a-z]*[ ]*" message="#{validationMsg.lastName }" /></h:inputText></td>
+				<td><h:inputText id="lastName" value="#{customer.lastName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.lastName }" /></h:inputText></td>
 				<td><h:message for="lastName" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
 				<td><h:outputText  value="Date-Of-Birth" /></td>
-				<td><t:inputDate id="dateOfBirth"  value="#{customer.dateOfBirth}" type="date" required="true" requiredMessage="#{validationMsg.required}" /></td>
+				<td><t:inputDate id="dateOfBirth"  value="#{customer.dateOfBirth}" required="true" requiredMessage="#{validationMsg.required}" type="date"/></td>
 				<td><h:message for="dateOfBirth" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
@@ -52,27 +52,27 @@
 			</tr>
 			<tr>
 				<td><h:outputText  value="Street Name" /></td>
-				<td><h:inputText id="streetName" value="#{customer.streetName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="[ ]*[A-Z][a-z]*[ ]*" message="#{validationMsg.streetName}" /></h:inputText></td>
+				<td><h:inputText id="streetName" value="#{customer.streetName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.streetName}" /></h:inputText></td>
 				<td><h:message for="streetName" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
 				<td><h:outputText  value="Street Number" /></td>
-				<td><h:inputText id="streetNumber" value="#{customer.streetNumber}" required="true" requiredMessage="#{validationMsg.required}"><mcv:validateRegExpr pattern="[ ]*[0-9]+[ ]*" message="#{validationMsg.streetNumber}" /></h:inputText></td>
+				<td><h:inputText id="streetNumber" value="#{customer.streetNumber}" required="true" requiredMessage="#{validationMsg.required}"><mcv:validateRegExpr pattern="^\s*[0-9]+\s*$" message="#{validationMsg.streetNumber}" /></h:inputText></td>
 				<td><h:message for="streetNumber" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
 				<td><h:outputText  value="City" /></td>
-				<td><h:inputText id="city" value="#{customer.city }" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="[ ]*[A-Z][a-z]*[ ]*" message="#{validationMsg.city}" /></h:inputText></td>
+				<td><h:inputText id="city" value="#{customer.city }" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]+(\s*[A-Z][a-z]+)*\s*$" message="#{validationMsg.city}" /></h:inputText></td>
 				<td><h:message for="city" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
 				<td><h:outputText  value="State" /></td>
-				<td><h:inputText id="state" value="#{customer.state}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="[ ]*[A-Z][a-z]*[ ]*" message="#{validationMsg.state}" /></h:inputText></td>
+				<td><h:inputText id="state" value="#{customer.state}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]+(\s*[A-Z][a-z]+)*\s*$" message="#{validationMsg.state}" /></h:inputText></td>
 				<td><h:message for="state" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
 				<td><h:outputText  value="Pin" /></td>
-				<td><h:inputText id="pin" value="#{customer.pin}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="[ ]*[0-9][0-9][0-9][0-9][0-9][0-9][ ]*" message="#{validationMsg.pin}" /></h:inputText></td>
+				<td><h:inputText id="pin" value="#{customer.pin}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[0-9]{6}\s*$" message="#{validationMsg.pin}" /></h:inputText></td>
 				<td><h:message for="pin" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>

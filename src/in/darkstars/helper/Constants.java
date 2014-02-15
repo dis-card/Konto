@@ -26,6 +26,7 @@ public class Constants {
 	public static final String accountAlreadyExistExceptionMessage = "Customer already have an account";
 	public static final String accountNotFoundExceptionMessage = "Customer account doesn't exist.";
 	public static final String transactionNotSupportedExceptionMessage = "Invalid transaction type.";
+	public static final String accountTypeNotSupportedExceptionMessage = "Chosen account type is not supported.";
 	
 	/* Success Messages */
 	public static final String customerRegistrationSuccessfulMessage = "Customer registration is successful and customer id is";

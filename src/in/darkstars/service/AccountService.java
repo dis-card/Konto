@@ -8,6 +8,7 @@ import in.darkstars.dto.SavingAccount;
 import in.darkstars.dto.Transaction;
 import in.darkstars.exception.AccountAlreadyExistException;
 import in.darkstars.exception.AccountNotFoundException;
+import in.darkstars.exception.AccountTypeNotSupportedException;
 import in.darkstars.exception.CustomerNotFoundException;
 import in.darkstars.exception.DataAccessException;
 import in.darkstars.exception.InsufficientDepositException;
@@ -34,13 +35,14 @@ public class AccountService implements Service {
 	/**
 	 * @throws DataAccessException 
 	 * @throws AccountAlreadyExistException 
+	 * @throws AccountTypeNotSupportedException 
 	 * @throws CustomerIdNotFoundException 
 	 * @throws InsufficientAmountException 
 	 * 
 	 */
-	public int openAccount( SavingAccount account ) throws DataAccessException, InsufficientDepositException, CustomerNotFoundException, AccountAlreadyExistException {
+	public int openAccount( SavingAccount account ) throws DataAccessException, InsufficientDepositException, CustomerNotFoundException, AccountAlreadyExistException, AccountTypeNotSupportedException {
 		
-		if ( account.getAccountType().equals(Constants.regularSavingAccount) && account.getInitialDeposit() < 100.0f )
+		if ( account.getAccountType().equals(Constants.regularSavingAccount) && account.getInitialDeposit()  < 100.0f )
 			throw new InsufficientDepositException();
 		AccountDao accountDao = (AccountDao) DaoFactory.getDao(Constants.account);
 		return accountDao.save(account);

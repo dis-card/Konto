@@ -4,11 +4,10 @@
 <%@taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <%@taglib uri="http://myfaces.apache.org/tomahawk" prefix="t"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
-<%@ taglib prefix="mcv"	uri="http://myfaces.apache.org/commons/validators"%>
+<%@ taglib uri="http://myfaces.apache.org/commons/validators" prefix="mcv" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <f:view>
-	<f:loadBundle basename="in.darkstars.helper.message"
-		var="validationMsg" />
+	<f:loadBundle basename="in.darkstars.helper.message" var="validationMsg" />
 	<html>
 <head>
 <%@include file="common.jsp"%>
@@ -35,7 +34,7 @@
 			<tr>
 				<td><h:outputText value="Customer Id" /></td>
 				<td><h:inputText id="customerId" value="#{account.customerId}"
-						required="true" requiredMessage="#{validationMsg.required }" > <mcv:validateRegExpr pattern="[0-9]+" message="#{validationMsg.customerId }" /></h:inputText></td>
+						required="true" requiredMessage="#{validationMsg.required }" > <mcv:validateRegExpr pattern="^\s*\d+\s*$" message="#{validationMsg.customerId }" /></h:inputText></td>
 				<td><h:message for="customerId" styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
@@ -59,8 +58,8 @@
 			</tr>
 			<tr>
 				<td><h:outputText value="Initial Deposit" /></td>
-				<td><h:inputText id="initialDeposit" required="true" requiredMessage="#{validationMsg.required }" value="#{account.initialDeposit}" ><mcv:validateRegExpr pattern="[0-9]*.[0-9]*" message="#{validationMsg.initialDeposit }" /></h:inputText></td>
-				<td><h:message for="initialDeposit" styleClass="errorMsg" /></td>
+				<td><h:inputText id="initialDeposit" required="true" requiredMessage="#{validationMsg.required }" value="#{account.initialDeposit}"> <mcv:validateRegExpr pattern="^\s*[0-9]+\s*$" message="#{validationMsg.initialDeposit}" /></h:inputText></td>
+				<td><h:message for="initialDeposit"  styleClass="errorMsg" /></td>
 			</tr>
 			<tr>
 				<td><h:commandButton type="submit" action="#{account.open}"

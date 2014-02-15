@@ -37,7 +37,7 @@
 				<td><h:inputText id="customerId"
 						value="#{transaction.customerId}" required="true"
 						requiredMessage="#{validationMsg.required }">
-						<mcv:validateRegExpr pattern="[0-9]+"
+						<mcv:validateRegExpr pattern="^\s*\d+\s*$"
 							message="#{validationMsg.customerId }" />
 					</h:inputText></td>
 				<td><h:message for="customerId" styleClass="errorMsg" /></td>
@@ -60,7 +60,7 @@
 				<td><h:outputText value="Amount" /></td>
 				<td><h:inputText id="amount" value="#{transaction.amount}"
 						required="true" requiredMessage="#{validationMsg.required }">
-						<mcv:validateRegExpr pattern="[0-9]+"
+						<mcv:validateRegExpr pattern="^\s*\d+\s*$"
 							message="#{validationMsg.amount}" />
 					</h:inputText></td>
 				<td><h:message for="amount" styleClass="errorMsg" /></td>

@@ -56,9 +56,15 @@ public class SavingAccount implements Serializable {
 	public void setPreferredCity(String preferredCity) {
 		this.preferredCity = preferredCity;
 	}
+	/**
+	 * @return the initialDeposit
+	 */
 	public Double getInitialDeposit() {
 		return initialDeposit;
 	}
+	/**
+	 * @param initialDeposit the initialDeposit to set
+	 */
 	public void setInitialDeposit(Double initialDeposit) {
 		this.initialDeposit = initialDeposit;
 	}
