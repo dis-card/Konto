@@ -38,16 +38,10 @@ CREATE TABLE  SalarySavingsAccount  (
 );
 
 
-
-
-
 ALTER TABLE  RegularSavingsAccount  ADD CONSTRAINT  RegularSavingsAccount_fk1  FOREIGN KEY ( customerId ) REFERENCES Customer( id );
 ALTER TABLE  RegularSavingsAccount  ADD CONSTRAINT  RegularSavingsAccount_fk2  FOREIGN KEY ( cityAcronym ) REFERENCES City( acronym );
 ALTER TABLE  SalarySavingsAccount  ADD CONSTRAINT  SalarySavingsAccount_fk1  FOREIGN KEY ( customerId ) REFERENCES Customer( id );
 ALTER TABLE  SalarySavingsAccount  ADD CONSTRAINT  SalarySavingsAccount_fk2  FOREIGN KEY ( cityAcronym ) REFERENCES City( acronym );
-ALTER TABLE  EmployeeSalarySavings  ADD CONSTRAINT  EmployeeSalarySavings_fk1  FOREIGN KEY ( customerId ) REFERENCES Customer( id );
-ALTER TABLE  EmployeeSalarySavings  ADD CONSTRAINT  EmployeeSalarySavings_fk2  FOREIGN KEY ( employeeId ) REFERENCES Employee( id );
-ALTER TABLE  EmployeeSalarySavings  ADD CONSTRAINT  EmployeeSalarySavings_fk3  FOREIGN KEY ( cityAcronym ) REFERENCES City( acronym );
 
 insert into vikash.city values ('BLR','Bangalore');
 insert into vikash.city values ('MUM','Mumbai');
