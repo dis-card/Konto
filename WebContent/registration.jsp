@@ -30,57 +30,48 @@
 				<c:out value="${customer.errorMsg }" />
 			</c:if>
 		</p>
-		<table class="table">
-			<tr>
-				<td><h:outputText value="First Name" /></td>
-				<td><h:inputText  id="firstName" value="#{customer.firstName}" required="true" requiredMessage="#{validationMsg.required }" > <mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.firstName }" /></h:inputText></td>
-				<td><h:message for="firstName" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td><h:outputText  value="Last Name" /> </td>
-				<td><h:inputText id="lastName" value="#{customer.lastName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.lastName }" /></h:inputText></td>
-				<td><h:message for="lastName" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td><h:outputText  value="Date-Of-Birth" /></td>
-				<td><t:inputDate id="dateOfBirth"  value="#{customer.dateOfBirth}" required="true" requiredMessage="#{validationMsg.required}" type="date"/></td>
-				<td><h:message for="dateOfBirth" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td colspan="2"><h:outputText styleClass="subHeading"
-						value="Address" /></td>
-			</tr>
-			<tr>
-				<td><h:outputText  value="Street Name" /></td>
-				<td><h:inputText id="streetName" value="#{customer.streetName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.streetName}" /></h:inputText></td>
-				<td><h:message for="streetName" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td><h:outputText  value="Street Number" /></td>
-				<td><h:inputText id="streetNumber" value="#{customer.streetNumber}" required="true" requiredMessage="#{validationMsg.required}"><mcv:validateRegExpr pattern="^\s*[0-9]+\s*$" message="#{validationMsg.streetNumber}" /></h:inputText></td>
-				<td><h:message for="streetNumber" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td><h:outputText  value="City" /></td>
-				<td><h:inputText id="city" value="#{customer.city }" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]+(\s*[A-Z][a-z]+)*\s*$" message="#{validationMsg.city}" /></h:inputText></td>
-				<td><h:message for="city" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td><h:outputText  value="State" /></td>
-				<td><h:inputText id="state" value="#{customer.state}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]+(\s*[A-Z][a-z]+)*\s*$" message="#{validationMsg.state}" /></h:inputText></td>
-				<td><h:message for="state" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td><h:outputText  value="Pin" /></td>
-				<td><h:inputText id="pin" value="#{customer.pin}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[0-9]{6}\s*$" message="#{validationMsg.pin}" /></h:inputText></td>
-				<td><h:message for="pin" styleClass="errorMsg" /></td>
-			</tr>
-			<tr>
-				<td><h:commandButton type="submit"
-						action="#{customer.register}" value="Register" /></td>
-				<td><h:commandButton  type="reset" value="Reset" /></td>
-			</tr>
-		</table>
+		<h:panelGrid styleClass="table" columns="3">
+				<h:outputText value="First Name" />
+				<h:inputText  id="firstName" value="#{customer.firstName}" required="true" requiredMessage="#{validationMsg.required }" > <mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.firstName }" /></h:inputText>
+				<h:message for="firstName" styleClass="errorMsg" />
+				
+				<h:outputText  value="Last Name" />
+				<h:inputText id="lastName" value="#{customer.lastName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.lastName }" /></h:inputText>
+				<h:message for="lastName" styleClass="errorMsg" />
+				
+				<h:outputText  value="Date-Of-Birth" />
+				<t:inputDate id="dateOfBirth"  value="#{customer.dateOfBirth}" required="true" requiredMessage="#{validationMsg.required}" type="date"/>
+				<h:message for="dateOfBirth" styleClass="errorMsg" />
+				
+				<h:outputText styleClass="subHeading"
+						value="Address" />
+				<h:outputText />
+				<h:outputText />
+				
+				<h:outputText  value="Street Name" />
+				<h:inputText id="streetName" value="#{customer.streetName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.streetName}" /></h:inputText>
+				<h:message for="streetName" styleClass="errorMsg" />
+				
+				<h:outputText  value="Street Number" />
+				<h:inputText id="streetNumber" value="#{customer.streetNumber}" required="true" requiredMessage="#{validationMsg.required}"><mcv:validateRegExpr pattern="^\s*[0-9]+\s*$" message="#{validationMsg.streetNumber}" /></h:inputText>
+				<h:message for="streetNumber" styleClass="errorMsg" />
+				
+				<h:outputText  value="City" />
+				<h:inputText id="city" value="#{customer.city }" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]+(\s*[A-Z][a-z]+)*\s*$" message="#{validationMsg.city}" /></h:inputText>
+				<h:message for="city" styleClass="errorMsg" />
+			
+				<h:outputText  value="State" />
+				<h:inputText id="state" value="#{customer.state}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]+(\s*[A-Z][a-z]+)*\s*$" message="#{validationMsg.state}" /></h:inputText>
+				<h:message for="state" styleClass="errorMsg" />
+				
+				<h:outputText  value="Pin" />
+				<h:inputText id="pin" value="#{customer.pin}" required="true" requiredMessage="#{validationMsg.required}" ><mcv:validateRegExpr pattern="^\s*[0-9]{6}\s*$" message="#{validationMsg.pin}" /></h:inputText>
+				<h:message for="pin" styleClass="errorMsg" />
+				
+				<h:commandButton type="submit"
+						action="#{customer.register}" value="Register" />
+				<h:commandButton  type="reset" value="Reset" />
+		</h:panelGrid>
 	</h:form>
 	<%@include file="footer.jsp"%>
 </body>

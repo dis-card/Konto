@@ -1,1 +1,1 @@
-<p class="footer">Copyright © 2014 Tata Consultancy Services | Site best viewed with Chrome.</p>
+<p class="footer">Copyright © 2014 Tata Consultancy Services </p>
