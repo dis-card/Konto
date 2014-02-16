@@ -42,11 +42,11 @@
 				<h:message for="firstName" styleClass="errorMsg" />
 				
 				<h:outputText  value="Last Name" />
-				<h:inputText id="lastName" value="#{customer.lastName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.lastName }" /></h:inputText>
+				<h:inputText id="lastName"  value="#{customer.lastName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.lastName }" /></h:inputText>
 				<h:message for="lastName" styleClass="errorMsg" />
 				
 				<h:outputText  value="Date-Of-Birth" />
-				<t:inputDate id="dateOfBirth"  value="#{customer.dateOfBirth}" required="true" requiredMessage="#{validationMsg.required}" type="date"/>
+				<t:inputDate id="dateOfBirth"  popupCalendar="true" value="#{customer.dateOfBirth}" required="true" requiredMessage="#{validationMsg.required }"/>
 				<h:message for="dateOfBirth" styleClass="errorMsg" />
 				
 				<h:outputText styleClass="subHeading"
