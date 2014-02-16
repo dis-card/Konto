@@ -234,7 +234,10 @@ public class CustomerRegistrationBean {
 		this.state = ""; 
 	}
 
-	/* register() :- calls service layer for customer registration */
+	/*
+	 *  register() :- calls service layer for customer registration. 
+	 *  
+	 */
 	
 	public String register() throws IllegalAccessException,
 			InvocationTargetException {

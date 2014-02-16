@@ -1,3 +1,9 @@
+<%--
+
+	Author	:-	Vikash
+	Purpose	:-	"Customer Registration page, through this page customers will be registered to the bank."
+
+ --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsf/html" prefix="h"%>

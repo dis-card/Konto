@@ -24,7 +24,10 @@ public class CustomerDao implements Dao {
 
 	
 	
-	/* save():-Saves the customer details to the database */
+	/* 
+	 * save(customer):-Saves the customer details to the database 
+	 * 
+	 */
 
 	public int save(Customer customer) throws DataAccessException {
 		int customerId = -1;
@@ -76,7 +79,10 @@ public class CustomerDao implements Dao {
 	}
 
 	
-	/* getCustomer() :- This method checks whether the customer detail is in database or not. */
+	/*
+	 *  getCustomer(customerId) :- This method checks whether the customer detail is in database or not. 
+	 *  
+	 */
 	
 	public void getCustomer(String customerId) throws CustomerNotFoundException, DataAccessException {
 		Connection con = null;

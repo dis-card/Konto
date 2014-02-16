@@ -27,7 +27,10 @@ import org.apache.commons.dbutils.DbUtils;
  */
 public class AccountDao implements Dao {
 
-	/* save():- Persist account related details to the database. */
+	/* 
+	 * save(account):- Persist account related details to the database. 
+	 * 
+	 */
 
 	public int save(SavingAccount account) throws DataAccessException,
 			CustomerNotFoundException, AccountAlreadyExistException {
@@ -99,7 +102,12 @@ public class AccountDao implements Dao {
 		return accountId;
 	}
 
-	/* withdraw() :- for withdrawal purpose */
+	/* 
+	 * withdraw(transaction) :- for withdrawal purpose 
+	 * 
+	 */
+	
+	
 	public double withdraw(Transaction transaction)
 			throws CustomerNotFoundException, DataAccessException,
 			AccountNotFoundException, InsufficientDepositException {
@@ -159,7 +167,11 @@ public class AccountDao implements Dao {
 
 	}
 
-	/* deposit() :- for deposit purpose.*/
+	/*
+	 *  deposit(transaction) :- for deposit purpose.
+	 *  
+	 */
+	
 	public double deposit(Transaction transaction)
 			throws CustomerNotFoundException, DataAccessException,
 			AccountNotFoundException {
@@ -217,7 +229,11 @@ public class AccountDao implements Dao {
 		return balance;
 	}
 
-	/* getAccount() :- fetching account details. */
+	/* 
+	 * getAccount(customerId, accountType) :- fetching account details based on customer id and account type. 
+	 * 
+	 */
+	
 	private SavingAccount getAccount(String customerId, String accountType)
 			throws AccountNotFoundException, DataAccessException {
 		Connection con = null;
@@ -270,8 +286,7 @@ public class AccountDao implements Dao {
 	}
 
 	/*
-	 * checkCustomer() :- Checks whether the person is customer of the bank or
-	 * not
+	 * checkCustomer(customerId) :- Checks whether the person is customer of the bank or not.
 	 */
 	private void checkCustomer(String customerId)
 			throws CustomerNotFoundException, DataAccessException {

@@ -1,3 +1,9 @@
+<%--
+
+	Author	:-	Vikash
+	Purpose	:-	contains the menu part of the application.
+	
+ --%>
 <%@taglib prefix="h" uri="http://java.sun.com/jsf/html"%>
 <%@taglib uri="http://java.sun.com/jsf/core" prefix="f"%>
 <nav>

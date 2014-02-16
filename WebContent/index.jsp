@@ -1,3 +1,9 @@
+<%--
+
+	Author	:-	Vikash
+	Purpose	:-	home page of the application.
+	
+ --%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
     <%@taglib prefix="h"  uri="http://java.sun.com/jsf/html" %>

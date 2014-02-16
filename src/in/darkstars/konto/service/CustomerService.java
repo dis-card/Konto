@@ -8,9 +8,16 @@ import in.darkstars.konto.helper.Constants;
 
 /**
  * @author Vikash
+ * 
+ * Purpose	:-	Service class for Customer related operations.
  *
  */
 public class CustomerService implements Service{
+	
+	/* 
+	 * register(customer) :- register the customer with the bank and returns a customer id. 
+	 * 
+	 */
 	
 	public int register(Customer customer) throws DataAccessException
 	{

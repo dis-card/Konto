@@ -17,13 +17,25 @@ import in.darkstars.konto.service.ServiceFactory;
 
 public class TransactionBean {
 	
+	/* customerId :- stores the customer identification number.*/
 	private String customerId;
+	
+	/* accountType :- stores the account type of the customer. */
 	private String accountType;
+	
+	/* transactionType :- stores the type transaction customer is willing to perform. */
 	private String transactionType;
+	
+	/* amount :- stores the amount for the current transaction. */
 	private String amount;
+	
+	/* outcome :- stores the outcome which will be used by the controller to switch to proper view. */
 	private String outcome = "success";
 	
+	/* msg :- stores success message if any. */
 	private String msg;
+	
+	/* errorMsg :- stores error message, if any. */
 	private String errorMsg;
 	
 
@@ -76,6 +88,11 @@ public class TransactionBean {
 	public void setAmount(String amount) {
 		this.amount = amount;
 	}
+	
+	/*
+	 *  reset() :- used to reset the fields.
+	 * 
+	 */
 
 	private void reset()
 	{
@@ -83,6 +100,10 @@ public class TransactionBean {
 		this.customerId = null;
 	}
 	
+	/*
+	 *  performTransaction() :- calls the appropriate service layer method for doing transactions.
+	 *  
+	 */
 	public String performTransaction() throws IllegalAccessException, InvocationTargetException
 	{
 		AccountService accountService = (AccountService) ServiceFactory.getService(Constants.ACCOUNT);

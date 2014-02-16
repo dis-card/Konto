@@ -5,12 +5,18 @@ import in.darkstars.konto.helper.Constants;
 /**
  * @author Vikash
  * 
+ * Purpose	:- Factory class for the different kind of Service classes.
  */
 public class ServiceFactory {
 
 	private static CustomerService customerService;
 	private static AccountService accountService;
 
+	/*
+	 *  getService(serviceType) :- returns the approprite service class based on the supplied type.
+	 *  
+	 */
+	
 	public static Service getService(String serviceType) {
 		Service service = null;
 		if (serviceType.equals(Constants.CUSTOMER)) {

@@ -25,6 +25,11 @@ import java.util.List;
  */
 public class AccountService implements Service {
 	
+	/* 
+	 * getCityList() :- returns the city list in which bank has branches. 
+	 * 
+	 */
+	
 	public List<City> getCityList() throws DataAccessException
 	{
 		CityDao cityDao = (CityDao) DaoFactory.getDao(Constants.CITY);
@@ -39,6 +44,12 @@ public class AccountService implements Service {
 	 * @throws InsufficientAmountException 
 	 * 
 	 */
+	
+	/*
+	 *  openAccount(account) :- opens account for the customer and returns account id. 
+	 *  
+	 */
+	
 	public int openAccount( SavingAccount account ) throws DataAccessException, InsufficientDepositException, CustomerNotFoundException, AccountAlreadyExistException{
 		
 		if ( account.getAccountType().equals(Constants.REGULARSAVINGACCOUNT) && account.getInitialDeposit()  < 100.0f )
@@ -48,6 +59,11 @@ public class AccountService implements Service {
 		
 	}
 
+	/*
+	 *  performTransaction(tansaction) :- performs transactions and returns the current balance to the end user. 
+	 *  
+	 */
+	
 	public double performTransaction( Transaction transaction ) throws TransactionNotSupportedException, CustomerNotFoundException, DataAccessException, AccountNotFoundException, InsufficientDepositException {
 		
 		double balance = 0;

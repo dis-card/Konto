@@ -1,3 +1,8 @@
+<%--
+	Author	:-	Vikash
+	Purpose	:-	"Opening Account" page. Via this page customer open an account with the bank.
+ --%>
+
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@taglib uri="http://java.sun.com/jsf/html" prefix="h"%>

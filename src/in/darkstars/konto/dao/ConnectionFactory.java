@@ -22,7 +22,11 @@ public class ConnectionFactory {
 	private static DataSource ds;
 	private static Context ctx;
 
-	/* getConnection() :- returns Connection object. */
+	/* 
+	 * getConnection() :- returns Connection object. 
+	 * 
+	 */
+	
 	
 	public static Connection getConnection() throws SQLException,
 			DataSourceException {

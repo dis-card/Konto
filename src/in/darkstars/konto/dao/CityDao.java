@@ -23,7 +23,10 @@ import org.apache.commons.dbutils.DbUtils;
 public class CityDao implements Dao {
 	
 	
-	/* selectAll() :- returns all the city that are present in the database as list. */
+	/* 
+	 * selectAll() :- returns all the city that are present in the database as list. 
+	 * 
+	 */
 
 	public List<City> selectAll() throws DataAccessException {
 		Connection con = null;

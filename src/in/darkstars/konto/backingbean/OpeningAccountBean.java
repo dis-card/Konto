@@ -188,6 +188,9 @@ public class OpeningAccountBean {
 		this.accountId = accountId;
 	}
 	
+	/*
+	 *  reset() :- this method is called to reset the fields.
+	 */
 	
 	public void reset()
 	{
@@ -200,7 +203,10 @@ public class OpeningAccountBean {
 		this.accountType = null;
 	}
 	
-	/* open() :- Workhorse method of this class, it will service layer methods for opening account. */
+	/* 
+	 * open() :- Workhorse method of this class, it will service layer methods for opening account.
+	 * 
+	 */
 	public String open() throws IllegalAccessException, InvocationTargetException
 	{
 		
