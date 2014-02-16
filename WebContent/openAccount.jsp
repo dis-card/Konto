@@ -7,7 +7,7 @@
 <%@ taglib uri="http://myfaces.apache.org/commons/validators" prefix="mcv" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <f:view>
-	<f:loadBundle basename="in.darkstars.helper.message" var="validationMsg" />
+	<f:loadBundle basename="in.darkstars.konto.helper.message" var="validationMsg" />
 	<html>
 <head>
 <%@include file="common.jsp"%>
