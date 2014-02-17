@@ -55,7 +55,7 @@
 			<h:message for="preferredCity" styleClass="errorMsg" />
 
 			<h:outputText value="Account Type" />
-			<h:selectOneMenu id="accountType" value="#{transaction.accountType}" required="true" requiredMessage="#{validationMsg.required }">
+			<h:selectOneMenu id="accountType" value="#{account.accountType}" required="true" requiredMessage="#{validationMsg.required }">
 				<f:selectItem itemValue="RS" itemLabel="Regular Savings" />
 				<f:selectItem itemValue="SS" itemLabel="Salary Savings" />
 				<mcv:validateRegExpr pattern="RS|SS"	message="#{validationMsg.accountType }" />

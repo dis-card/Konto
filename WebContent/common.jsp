@@ -12,6 +12,8 @@
 <c:choose>
 	<c:when test="${fn:contains(browser, 'Firefox')}">
 	</c:when>
+	<c:when test="${fn:contains(browser, 'Chrome')}">
+	</c:when>
 	<c:otherwise>
 		<p class="errorMsg">Best viewed with Firefox or Chrome	<p>
 	</c:otherwise>

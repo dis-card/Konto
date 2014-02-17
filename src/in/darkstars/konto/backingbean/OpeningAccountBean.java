@@ -213,7 +213,6 @@ public class OpeningAccountBean {
 		SavingAccount savingAccount = new SavingAccount();
 		BeanUtils.copyProperties(savingAccount, this);
 		savingAccount.setInitialDeposit(Double.parseDouble(initialDeposit));
-		System.out.println(savingAccount.getInitialDeposit());
 		AccountService accountService = (AccountService)ServiceFactory.getService(Constants.ACCOUNT);
 			try {
 				accountId = accountService.openAccount(savingAccount);
