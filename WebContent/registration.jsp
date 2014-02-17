@@ -36,7 +36,7 @@
 				<c:out value="${customer.errorMsg }" />
 			</c:if>
 		</p>
-		<h:panelGrid styleClass="table" columns="3">
+		<h:panelGrid id="registrationPanelGrid" styleClass="table" columns="3">
 				<h:outputText value="First Name" />
 				<h:inputText  id="firstName" value="#{customer.firstName}" required="true" requiredMessage="#{validationMsg.required }" > <mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.firstName }" /></h:inputText>
 				<h:message for="firstName" styleClass="errorMsg" />
@@ -55,7 +55,7 @@
 				<h:outputText />
 				
 				<h:outputText  value="Street Name" />
-				<h:inputText id="streetName" value="#{customer.streetName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]*\s*$" message="#{validationMsg.streetName}" /></h:inputText>
+				<h:inputText id="streetName" value="#{customer.streetName}" required="true" requiredMessage="#{validationMsg.required }" ><mcv:validateRegExpr pattern="^\s*[A-Z][a-z]+(\s*[A-Z][a-z]+)*\s*$" message="#{validationMsg.streetName}" /></h:inputText>
 				<h:message for="streetName" styleClass="errorMsg" />
 				
 				<h:outputText  value="Street Number" />
@@ -76,7 +76,7 @@
 				
 				<h:commandButton type="submit"
 						action="#{customer.register}" value="Register" />
-				<h:commandButton  type="reset" value="Reset" />
+				<h:commandButton immediate="true" value="Reset" action="#{customer.reset}" />
 		</h:panelGrid>
 	</h:form>
 	<%@include file="footer.jsp"%>

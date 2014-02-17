@@ -20,61 +20,73 @@ import org.apache.commons.beanutils.BeanUtils;
 /**
  * @author Vikash
  * 
- * Purpose :- Act as the backing bean class for the account opening page.
+ *         Purpose :- Act as the backing bean class for the account opening
+ *         page.
  * 
  */
 public class OpeningAccountBean {
 
-	/* Store customer's identification number.*/
+	/* Store customer's identification number. */
 	private String customerId;
-	
-	/* Store bank's available branch city list.*/
+
+	/* Store bank's available branch city list. */
 	private List<City> preferredCityList;
-	
+
 	/* Store where the customer wants to open an account. */
 	private String preferredCity;
-	
-	/* Store customer's initial deposit in the account.*/
+
+	/* Store customer's initial deposit in the account. */
 	private String initialDeposit;
-	
-	/* Store customer's account type i.e "Regular Saving" or "Salary Saving".*/
+
+	/* Store customer's account type i.e "Regular Saving" or "Salary Saving". */
 	private String accountType;
-	
-	/* Store customer's account identification number, this will be generated after customer opened an account.*/
-	private int accountId;
-	
+
 	/* Store error messages which occur during account opening. */
 	private String errorMsg;
-	
+
 	/* Store success messages. */
 	private String msg;
-	
+
 	/* Store customer's bank account opening date. */
 	private Date openingDate;
-	
+
+	/*
+	 * Store customer's account identification number, this will be generated
+	 * after customer opened an account.
+	 */
+	private int accountId = -1;
+
+	public int getAccountId() {
+		return accountId;
+	}
+
+	public void setAccountId(int accountId) {
+		this.accountId = accountId;
+	}
+
 	/**
 	 * @return the openingDate
 	 */
 	public Date getOpeningDate() {
-		
-		if (openingDate == null)
-		{
-			openingDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-		}
-		else if ( openingDate.compareTo( new java.sql.Date(Calendar.getInstance().getTime().getTime())) != 0 )
-		{
-			openingDate = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+
+		if (openingDate == null) {
+			openingDate = new java.sql.Date(Calendar.getInstance().getTime()
+					.getTime());
+		} else if (openingDate.compareTo(new java.sql.Date(Calendar
+				.getInstance().getTime().getTime())) != 0) {
+			openingDate = new java.sql.Date(Calendar.getInstance().getTime()
+					.getTime());
 		}
 		return openingDate;
 	}
+
 	/**
-	 * @param openingDate the openingDate to set
+	 * @param openingDate
+	 *            the openingDate to set
 	 */
 	public void setOpeningDate(Date openingDate) {
 		this.openingDate = openingDate;
 	}
-
-	private String outcome="success";
 
 	/**
 	 * @return the preferredCity
@@ -82,8 +94,11 @@ public class OpeningAccountBean {
 	public String getPreferredCity() {
 		return preferredCity;
 	}
+
 	/**
-	 * getPrefferedCityList() :- sets the preferred city list, it fetches the city list from the database.
+	 * getPrefferedCityList() :- sets the preferred city list, it fetches the
+	 * city list from the database.
+	 * 
 	 * @return the preferredCityList
 	 */
 	public List<City> getPreferredCityList() {
@@ -99,16 +114,20 @@ public class OpeningAccountBean {
 	}
 
 	/**
-	 * @param preferredCityList the preferredCityList to set
+	 * @param preferredCityList
+	 *            the preferredCityList to set
 	 */
 	public void setPreferredCityList(List<City> preferredCityList) {
 		this.preferredCityList = preferredCityList;
 	}
 
 	/**
-	 * @param preferredCity the preferredCity to set
+	 * @param preferredCity
+	 *            the preferredCity to set
 	 */
 	public void setPreferredCity(String preferredCity) {
+		if (preferredCity != null)
+			preferredCity = preferredCity.trim();
 		this.preferredCity = preferredCity;
 	}
 
@@ -120,7 +139,8 @@ public class OpeningAccountBean {
 	}
 
 	/**
-	 * @param errorMsg the errorMsg to set
+	 * @param errorMsg
+	 *            the errorMsg to set
 	 */
 	public void setErrorMsg(String errorMsg) {
 		this.errorMsg = errorMsg;
@@ -134,7 +154,8 @@ public class OpeningAccountBean {
 	}
 
 	/**
-	 * @param msg the msg to set
+	 * @param msg
+	 *            the msg to set
 	 */
 	public void setMsg(String msg) {
 		this.msg = msg;
@@ -146,25 +167,34 @@ public class OpeningAccountBean {
 	public String getCustomerId() {
 		return customerId;
 	}
+
 	/**
-	 * @param customerId the customerId to set
+	 * @param customerId
+	 *            the customerId to set
 	 */
 	public void setCustomerId(String customerId) {
+		if (customerId != null)
+			customerId = customerId.trim();
 		this.customerId = customerId;
 	}
-	
+
 	/**
 	 * @return the initialDeposit
 	 */
 	public String getInitialDeposit() {
 		return initialDeposit;
 	}
+
 	/**
-	 * @param initialDeposit the initialDeposit to set
+	 * @param initialDeposit
+	 *            the initialDeposit to set
 	 */
 	public void setInitialDeposit(String initialDeposit) {
+		if (initialDeposit != null)
+			initialDeposit = initialDeposit.trim();
 		this.initialDeposit = initialDeposit;
 	}
+
 	/**
 	 * @return the accountType
 	 */
@@ -177,64 +207,52 @@ public class OpeningAccountBean {
 	 *            the accountType to set
 	 */
 	public void setAccountType(String accountType) {
+		if (accountType != null)
+			accountType = accountType.trim();
 		this.accountType = accountType;
 	}
 
-		
-	public int getAccountId() {
-		return accountId;
-	}
-	public void setAccountId(int accountId) {
-		this.accountId = accountId;
-	}
-	
 	/*
-	 *  reset() :- this method is called to reset the fields.
+	 * reset() :- this method is called to reset the fields.
 	 */
-	
-	public void reset()
-	{
-		this.customerId = null;
-		this.preferredCity = null;
-		this.initialDeposit = null;
-		this.accountType = null;
-		this.openingDate = null;
-		this.preferredCity = null;
-		this.accountType = null;
+
+	public String reset() {
+		setCustomerId(null);
+		setPreferredCity(null);
+		setAccountType(null);
+		setOpeningDate(getOpeningDate());
+		setInitialDeposit(null);
+		return Constants.SUCCESS;
 	}
-	
-	/* 
-	 * open() :- Workhorse method of this class, it will service layer methods for opening account.
-	 * 
+
+	/*
+	 * open() :- Workhorse method of this class, it will service layer methods
+	 * for opening account.
 	 */
-	public String open() throws IllegalAccessException, InvocationTargetException
-	{
-		
+	public String open() throws IllegalAccessException,
+			InvocationTargetException {
+
 		SavingAccount savingAccount = new SavingAccount();
 		BeanUtils.copyProperties(savingAccount, this);
 		savingAccount.setInitialDeposit(Double.parseDouble(initialDeposit));
-		AccountService accountService = (AccountService)ServiceFactory.getService(Constants.ACCOUNT);
-			try {
-				accountId = accountService.openAccount(savingAccount);
-				msg = Constants.OPENINGACCOUNTSUCCESSFULMESSAGE;
-				reset();
-			} catch (DataAccessException e) {
-				e.printStackTrace();
-				errorMsg = Constants.DATAACCESSEXCEPTIONMESSAGE;
-			}
-			catch (InsufficientDepositException e )
-			{
-				errorMsg = Constants.INSUFFICIENTDEPOSITEXCEPTIONMESSAGE;
-			}
-			catch (AccountAlreadyExistException e )
-			{
-				errorMsg = Constants.ACCOUNTALREADYEXISTEXCEPTIONMESSAGE;
-			}
-			catch (CustomerNotFoundException e )
-			{
-				errorMsg = Constants.CUSTOMERNOTFOUNDEXCEPTIONMESSAGE;
-			}
-		return outcome;
+		AccountService accountService = (AccountService) ServiceFactory
+				.getService(Constants.ACCOUNT);
+		try {
+
+			accountId = accountService.openAccount(savingAccount);
+			msg = Constants.OPENINGACCOUNTSUCCESSFULMESSAGE;
+			reset();
+		} catch (DataAccessException e) {
+			e.printStackTrace();
+			errorMsg = Constants.DATAACCESSEXCEPTIONMESSAGE;
+		} catch (InsufficientDepositException e) {
+			errorMsg = Constants.INSUFFICIENTDEPOSITEXCEPTIONMESSAGE;
+		} catch (AccountAlreadyExistException e) {
+			errorMsg = Constants.ACCOUNTALREADYEXISTEXCEPTIONMESSAGE;
+		} catch (CustomerNotFoundException e) {
+			errorMsg = Constants.CUSTOMERNOTFOUNDEXCEPTIONMESSAGE;
+		}
+		return Constants.SUCCESS;
 	}
 
 }

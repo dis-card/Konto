@@ -71,7 +71,7 @@
 
 			<h:commandButton type="submit"
 				action="#{transaction.performTransaction}" value="Perform" />
-			<h:commandButton type="reset" value="Reset" />
+			<h:commandButton immediate="true" value="Reset" action="#{transaction.reset}"/>
 		</h:panelGrid>
 	</h:form>
 	<%@include file="footer.jsp"%>

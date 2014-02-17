@@ -15,12 +15,12 @@ import org.apache.commons.beanutils.BeanUtils;
 /**
  * @author Vikash
  * 
- * Purpose :- Backing bean class for the customer registration page.
+ *         Purpose :- Backing bean class for the customer registration page.
  * 
  */
 public class CustomerRegistrationBean {
-	
-	/* Store customer's first name.*/
+
+	/* Store customer's first name. */
 	private String firstName;
 	/* Store customer's last name. */
 	private String lastName;
@@ -36,12 +36,15 @@ public class CustomerRegistrationBean {
 	private String pin;
 	/* Store customer's state of residence. */
 	private String state;
-	/* Stores customer's id, it will be generated after he is registered with the bank. */
+	/*
+	 * Stores customer's id, it will be generated after he is registered with
+	 * the bank.
+	 */
 	private int customerId;
 
 	/* Stores error messages */
 	private String errorMsg = null;
-	
+
 	/* Stores success messages */
 	private String msg = null;
 
@@ -57,7 +60,9 @@ public class CustomerRegistrationBean {
 	 *            the city to set
 	 */
 	public void setCity(String city) {
-		this.city = city.trim();
+		if (city != null)
+			city = city.trim();
+		this.city = city;
 	}
 
 	/**
@@ -90,8 +95,6 @@ public class CustomerRegistrationBean {
 		this.errorMsg = errorMsg;
 	}
 
-	private String outcome = "success";
-
 	/**
 	 * @return the state
 	 */
@@ -104,7 +107,9 @@ public class CustomerRegistrationBean {
 	 *            the state to set
 	 */
 	public void setState(String state) {
-		this.state = state.trim();
+		if (state != null)
+			state = state.trim();
+		this.state = state;
 	}
 
 	/**
@@ -119,7 +124,9 @@ public class CustomerRegistrationBean {
 	 *            the firstName to set
 	 */
 	public void setFirstName(String firstName) {
-		this.firstName = firstName.trim();
+		if (firstName != null)
+			firstName = firstName.trim();
+		this.firstName = firstName;
 	}
 
 	/**
@@ -134,7 +141,9 @@ public class CustomerRegistrationBean {
 	 *            the lastName to set
 	 */
 	public void setLastName(String lastName) {
-		this.lastName = lastName.trim();
+		if (lastName != null)
+			lastName = lastName.trim();
+		this.lastName = lastName;
 	}
 
 	/**
@@ -149,7 +158,9 @@ public class CustomerRegistrationBean {
 	 *            the streetName to set
 	 */
 	public void setStreetName(String streetName) {
-		this.streetName = streetName.trim();
+		if (streetName != null)
+			streetName = streetName.trim();
+		this.streetName = streetName;
 	}
 
 	/**
@@ -164,7 +175,9 @@ public class CustomerRegistrationBean {
 	 *            the streetNumber to set
 	 */
 	public void setStreetNumber(String streetNumber) {
-		this.streetNumber = streetNumber.trim();
+		if (streetNumber != null)
+			streetNumber = streetNumber.trim();
+		this.streetNumber = streetNumber;
 	}
 
 	/**
@@ -179,21 +192,23 @@ public class CustomerRegistrationBean {
 	 *            the pin to set
 	 */
 	public void setPin(String pin) {
-		this.pin = pin.trim();
+		if (pin != null)
+			pin = pin.trim();
+		this.pin = pin;
 	}
 
 	/**
 	 * @return the dateOfBirth
 	 */
 	public Date getDateOfBirth() {
-		
-		if (dateOfBirth == null)
-		{
-			dateOfBirth = new java.sql.Date(Calendar.getInstance().getTime().getTime());
-		}
-		else if ( dateOfBirth.compareTo( new java.sql.Date(Calendar.getInstance().getTime().getTime())) != 0 )
-		{
-			dateOfBirth = new java.sql.Date(Calendar.getInstance().getTime().getTime());
+
+		if (dateOfBirth == null) {
+			dateOfBirth = new java.sql.Date(Calendar.getInstance().getTime()
+					.getTime());
+		} else if (dateOfBirth.compareTo(new java.sql.Date(Calendar
+				.getInstance().getTime().getTime())) != 0) {
+			dateOfBirth = new java.sql.Date(Calendar.getInstance().getTime()
+					.getTime());
 		}
 		return dateOfBirth;
 	}
@@ -220,25 +235,24 @@ public class CustomerRegistrationBean {
 	public void setCustomerId(int customerId) {
 		this.customerId = customerId;
 	}
-	
-	
-	private void reset()
-	{
-		this.firstName = "";
-		this.lastName = "";
-		this.dateOfBirth = null;
-		this.streetName = "";
-		this.streetNumber = "";
-		this.city = "";
-		this.pin = "";
-		this.state = ""; 
+
+	public String reset() {
+
+		setFirstName(null);
+		setLastName(null);
+		setDateOfBirth(getDateOfBirth());
+		setStreetName(null);
+		setStreetNumber(null);
+		setCity(null);
+		setPin(null);
+		setState(null);
+		return Constants.SUCCESS;
 	}
 
 	/*
-	 *  register() :- calls service layer for customer registration. 
-	 *  
+	 * register() :- calls service layer for customer registration.
 	 */
-	
+
 	public String register() throws IllegalAccessException,
 			InvocationTargetException {
 		Customer customer = new Customer();
@@ -252,6 +266,7 @@ public class CustomerRegistrationBean {
 		} catch (DataAccessException e) {
 			errorMsg = Constants.DATAACCESSEXCEPTIONMESSAGE;
 		}
-		return outcome;
+		return Constants.SUCCESS;
 	}
+
 }

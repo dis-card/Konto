@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <pageflow:Pageflow xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:pageflow="http://www.sybase.com/suade/pageflow" id="pf13918419761440" configfile="/Konto/WebContent/WEB-INF/faces-config.xml">
   <nodes xsi:type="pageflow:PFPage" name="registration" id="pf13919844591580" referenceLink="//@navigationRule.0/@navigationCase.0/@toViewId|" outlinks="pf13919844591591" inlinks="pf13919844591591" path="/registration.jsp"/>
-  <nodes xsi:type="pageflow:PFPage" name="transaction" id="pf13922069053150" referenceLink="//@navigationRule.1/@navigationCase.0/@toViewId|" outlinks="pf13922069053151" inlinks="pf13922069053151" path="/transaction.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="transaction" id="pf13922069053150" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf13922069053151" inlinks="pf13922069053151" path="/transaction.jsp"/>
+  <nodes xsi:type="pageflow:PFPage" name="openAccount" id="pf13926297252310" referenceLink="//@navigationRule.2/@navigationCase.0/@toViewId|" outlinks="pf13926297252311" inlinks="pf13926297252311" path="/openAccount.jsp"/>
   <links id="pf13919844591591" target="pf13919844591580" source="pf13919844591580" outcome="success"/>
   <links id="pf13922069053151" target="pf13922069053150" source="pf13922069053150" outcome="success"/>
+  <links id="pf13926297252311" target="pf13926297252310" source="pf13926297252310" outcome="success"/>
 </pageflow:Pageflow>

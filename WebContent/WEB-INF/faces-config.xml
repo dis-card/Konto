@@ -29,11 +29,20 @@
     		<to-view-id>/registration.jsp</to-view-id>
     	</navigation-case>
     </navigation-rule>    
+    
     <navigation-rule>
     	<from-view-id>/transaction.jsp</from-view-id>
     	<navigation-case>
     		<from-outcome>success</from-outcome>
     		<to-view-id>/transaction.jsp</to-view-id>
+    	</navigation-case>
+    </navigation-rule>
+    
+     <navigation-rule>
+    	<from-view-id>/openAccount.jsp</from-view-id>
+    	<navigation-case>
+    		<from-outcome>success</from-outcome>
+    		<to-view-id>/openAccount.jsp</to-view-id>
     	</navigation-case>
     </navigation-rule>
     

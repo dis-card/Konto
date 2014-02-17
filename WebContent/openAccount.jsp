@@ -78,7 +78,7 @@
 			<h:message for="initialDeposit" styleClass="errorMsg" />
 
 			<h:commandButton type="submit" action="#{account.open}" value="Open" />
-			<h:commandButton type="reset" value="Reset" />
+			<h:commandButton immediate="true" value="Reset" action="#{account.reset}"/>
 		</h:panelGrid>
 	</h:form>
 	<%@include file="footer.jsp"%>
