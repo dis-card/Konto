@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <f:view>
 	<f:loadBundle basename="in.darkstars.konto.helper.message"
-		var="validationMsg" />
+		var="lMsg" />
 	<html>
 <head>
 <%@include file="common.jsp"%>
@@ -38,47 +38,47 @@
 			</c:if>
 		</p>
 		<h:panelGrid styleClass="table" columns="3">
-			<h:outputText value="Customer Id" />
+			<h:outputText value="#{lMsg.customerId }" />
 			<h:inputText id="customerId" value="#{account.customerId}"
-				required="true" requiredMessage="#{validationMsg.required }">
+				required="true" requiredMessage="#{lMsg.required }">
 				<mcv:validateRegExpr pattern="^\s*\d+\s*$"
-					message="#{validationMsg.customerId }" />
+					message="#{lMsg['error.customerId'] }" />
 			</h:inputText>
 			<h:message for="customerId" styleClass="errorMsg" />
 
-			<h:outputText value="Preferred City" />
+			<h:outputText value="#{lMsg.city }" />
 			<h:selectOneMenu id="preferredCity" value="#{account.preferredCity}"
-				required="true" requiredMessage="#{validationMsg.required}">
+				required="true" requiredMessage="#{lMsg.required}">
 				<t:selectItems value="#{account.preferredCityList }" var="city"
 					itemLabel="#{city.name}" itemValue="#{city.acronym }" />
 			</h:selectOneMenu>
 			<h:message for="preferredCity" styleClass="errorMsg" />
 
-			<h:outputText value="Account Type" />
-			<h:selectOneMenu id="accountType" value="#{account.accountType}" required="true" requiredMessage="#{validationMsg.required }">
+			<h:outputText value="#{lMsg.accountType}" />
+			<h:selectOneMenu id="accountType" value="#{account.accountType}" required="true" requiredMessage="#{lMsg.required }">
 				<f:selectItem itemValue="RS" itemLabel="Regular Savings" />
 				<f:selectItem itemValue="SS" itemLabel="Salary Savings" />
-				<mcv:validateRegExpr pattern="RS|SS"	message="#{validationMsg.accountType }" />
+				<mcv:validateRegExpr pattern="RS|SS"	message="#{lMsg['error.accountType']}" />
 			</h:selectOneMenu>
 			<h:message for="accountType" styleClass="errorMsg" />
 
-			<h:outputText value="Opening-Date" />
+			<h:outputText value="#{lMsg.openingDate }" />
 			<t:inputDate id="openingDate" disabled="true"
 				value="#{account.openingDate}" type="date" required="true"
-				requiredMessage="#{validationMsg.required}" />
+				requiredMessage="#{lMsg.required}" />
 			<h:message for="openingDate" styleClass="errorMsg" />
 
-			<h:outputText value="Initial Deposit" />
+			<h:outputText value="#{lMsg.initialDeposit }" />
 			<h:inputText id="initialDeposit" required="true"
-				requiredMessage="#{validationMsg.required }"
+				requiredMessage="#{lMsg.required }"
 				value="#{account.initialDeposit}">
 				<mcv:validateRegExpr pattern="^\s*[0-9]+\s*$"
-					message="#{validationMsg.initialDeposit}" />
+					message="#{lMsg['error.initialDeposit']}" />
 			</h:inputText>
 			<h:message for="initialDeposit" styleClass="errorMsg" />
 
-			<h:commandButton type="submit" action="#{account.open}" value="Open" />
-			<h:commandButton immediate="true" value="Reset" action="#{account.reset}"/>
+			<h:commandButton type="submit" action="#{account.open}" value="#{lMsg.open }" />
+			<h:commandButton immediate="true" value="#{lMsg.reset }" action="#{account.reset}"/>
 		</h:panelGrid>
 	</h:form>
 	<%@include file="footer.jsp"%>

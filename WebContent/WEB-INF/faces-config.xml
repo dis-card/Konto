@@ -49,7 +49,7 @@
     <application>
 	  <resource-bundle>
 		<base-name>in.darkstars.konto.helper.message</base-name>
-		<var>validationMsg</var>
+		<var>lMsg</var>
 	   </resource-bundle>
      </application>
 

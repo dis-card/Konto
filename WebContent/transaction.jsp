@@ -14,7 +14,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <f:view>
 	<f:loadBundle basename="in.darkstars.konto.helper.message"
-		var="validationMsg" />
+		var="lMsg" />
 	<html>
 <head>
 <%@include file="common.jsp"%>
@@ -24,7 +24,7 @@
 <body>
 	<%@include file="header.jsp"%>
 	<%@include file="menu.jsp"%>
-	<p class="subHeading">Transaction Form</p>
+	<h:outputLabel  styleClass="subHeading" value="#{lMsg.transactionForm }" />
 	<h:form>
 		<p class="msg">
 			<c:if test="${transaction.msg != null }">
@@ -38,41 +38,41 @@
 		</p>
 		<h:panelGrid styleClass="table" columns="3">
 
-			<h:outputText value="Customer Id" />
+			<h:outputText value="#{lMsg.customerId }" />
 			<h:inputText id="customerId" value="#{transaction.customerId}"
-				required="true" requiredMessage="#{validationMsg.required }">
+				required="true" requiredMessage="#{lMsg.required }">
 				<mcv:validateRegExpr pattern="^\s*\d+\s*$"
-					message="#{validationMsg.customerId }" />
+					message="#{lMsg['error.customerId']}" />
 			</h:inputText>
 			<h:message for="customerId" styleClass="errorMsg" />
 
-			<h:outputText value="Account Type" />
+			<h:outputText value="#{lMsg.accountType }" />
 			<h:selectOneMenu id="accountType" value="#{transaction.accountType}" required="true" requiredMessage="#{validationMsg.required }">
 				<f:selectItem itemValue="RS" itemLabel="Regular Savings" />
 				<f:selectItem itemValue="SS" itemLabel="Salary Savings" />
-				<mcv:validateRegExpr pattern="RS|SS"	message="#{validationMsg.accountType }" />
+				<mcv:validateRegExpr pattern="RS|SS"	message="#{lMsg['error.accountType']}" />
 			</h:selectOneMenu>
 			<h:message for="accountType" styleClass="errorMsg" />
 
-			<h:outputText value="Transaction Type" />
-			<h:selectOneMenu id="transactionType" value="#{transaction.transactionType}" required="true" requiredMessage="#{validationMsg.required }" >
+			<h:outputText value="#{lMsg.transactionType}" />
+			<h:selectOneMenu id="transactionType" value="#{transaction.transactionType}" required="true" requiredMessage="#{lMsg.required }" >
 				<f:selectItem itemValue="D" itemLabel="Deposit" />
 				<f:selectItem itemValue="W" itemLabel="Withdrawal" />
-				<mcv:validateRegExpr pattern="D|W"	message="#{validationMsg.transactionType }" />
+				<mcv:validateRegExpr pattern="D|W"	message="#{lMsg['error.transactionType'] }" />
 			</h:selectOneMenu>
 			<h:message for="transactionType" styleClass="errorMsg" />
 
-			<h:outputText value="Amount" />
+			<h:outputText value="#{lMsg.amount }" />
 			<h:inputText id="amount" value="#{transaction.amount}"
-				required="true" requiredMessage="#{validationMsg.required }">
+				required="true" requiredMessage="#{lMsg.required }">
 				<mcv:validateRegExpr pattern="^\s*\d+\s*$"
-					message="#{validationMsg.amount}" />
+					message="#{lMsg['error.amount']}" />
 			</h:inputText>
 			<h:message for="amount" styleClass="errorMsg" />
 
 			<h:commandButton type="submit"
-				action="#{transaction.performTransaction}" value="Perform" />
-			<h:commandButton immediate="true" value="Reset" action="#{transaction.reset}"/>
+				action="#{transaction.performTransaction}" value="#{lMsg.perform }" />
+			<h:commandButton immediate="true" value="#{lMsg.reset }" action="#{transaction.reset}"/>
 		</h:panelGrid>
 	</h:form>
 	<%@include file="footer.jsp"%>
